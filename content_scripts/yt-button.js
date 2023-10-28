@@ -36,7 +36,8 @@ function createButton() {
   console.log("[yt2clip]: create button function entered");
 
   // metadata should be a string like "31,448 views • Jan 6, 2021"
-  const metadata = document.querySelector("tp-yt-paper-tooltip.ytd-watch-metadata > div").innerText;
+  const metadata = document.querySelector("tp-yt-paper-tooltip.ytd-watch-info-text > div").innerText;
+
   console.log("[yt2clip]: found metadata");
 
   // split metadata and trim due to line break and whitespace at the start
@@ -44,17 +45,17 @@ function createButton() {
   const views = splitmeta[0].trim();
   const date = splitmeta[1].trim();
 
-  // replace date with proper one
-  const oldDate = document.querySelector("yt-formatted-string#info span:nth-child(3)");
-  oldDate.innerText = date;
-
-  // save old style views (1 year ago, etc) in case we want it
-  const oldViews = document.querySelector("yt-formatted-string#info span").innerText;
-
-  console.log("[yt2clip]: replaced date");
+  // use alternative style views (e.g. 10K instead of 10,000) if exists
+  if (document.querySelector("yt-formatted-string#info span")) {
+    views = document.querySelector("yt-formatted-string#info span").innerText;
+  }
+   
+  console.log("[yt2clip]: found alternative style views");
 
   // find an element on the page to add our html next to
   const element = document.querySelector("#notification-preference-button");
+  
+  console.log("[yt2clip]: found element");
 
   // only continue if element is found
   if (element == null) {
@@ -86,7 +87,7 @@ function createButton() {
 
     // build text
     const text = title + "\n" + url + "\n" + channel + " (" + subs + ") - " 
-                  + oldViews + " - " + date + " - " + time;
+                  + views + " - " + date + " - " + time;
     
     // write text to clipboard
     navigator.clipboard.writeText(text);

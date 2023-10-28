@@ -24,8 +24,7 @@
 
   "web_accessible_resources": [
     "icons/yt2clip-64.png",
-    "popup/yt2clip-button.png",
-    "popup/yt2clip-datefix.png"
+    "popup/yt2clip-button.png"
   ],
 
   "content_scripts": [
