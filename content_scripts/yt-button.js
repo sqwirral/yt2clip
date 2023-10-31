@@ -42,7 +42,7 @@ function createButton() {
 
   // split metadata and trim due to line break and whitespace at the start
   const splitmeta = metadata.split("•");
-  const views = splitmeta[0].trim();
+  let views = splitmeta[0].trim();
   const date = splitmeta[1].trim();
 
   // use alternative style views (e.g. 10K instead of 10,000) if exists
