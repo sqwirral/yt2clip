@@ -86,8 +86,8 @@ function createButton() {
     const time = document.querySelector("span.ytp-time-duration").innerText;
 
     // build text
-    const text = title + "\n" + url + "\n" + channel + " (" + subs + ") - " 
-                  + views + " - " + date + " - " + time;
+    const text = "\t" + title + "\n\t" + url + "\n\t" + channel + " (" + subs + 
+                  ") - " + views + " - " + date + " - " + time;
     
     // write text to clipboard
     navigator.clipboard.writeText(text);

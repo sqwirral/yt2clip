@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Youtube to Clipboard",
-  "version": "1.2",
+  "version": "1.3",
 
   "description": "Replaces date on Youtube video pages, and adds a button to copy a Youtube video's information to the Windows clipboard.",
   "homepage_url": "https://github.com/sqwirral/yt2clip",
